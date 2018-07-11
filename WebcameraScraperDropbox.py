@@ -9,7 +9,7 @@
 # the file upload and restore using dropbox api. Mostly you need an access token to connect to Dropbox before actual file/folder operations.
 #
 # 3. Once done with code, run the script by following command
-# $ python SFileUploader.py // if python3.5 is default
+# $ python WebcameraScraperDropbox.py // if python3.5 is default
 
 
 import sys
