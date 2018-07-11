@@ -9,7 +9,11 @@
 # the file upload and restore using dropbox api. Mostly you need an access token to connect to Dropbox before actual file/folder operations.
 #
 # 3. Once done with code, run the script by following command
-# $ python WebcameraScraperDropbox.py // if python3.5 is default
+#
+# 4. Setup Dropbox directories. Primary Directory is "Master" with sub-directories "/Plates34_37" "/Plates22_25" "/KWcam" 
+# "/KEcam" "/KIcam" "/F1cam" "/PGcam" "/Hwy130camSouth" "/Hwy130camNorth" and "/MaunaKea".
+
+# $ python WebcameraScraperDropbox.py // to run if python3.5 is default
 
 
 import sys
@@ -27,7 +31,7 @@ TOKEN = 'Add Dropbox Access Token Here'
 
 LOCALFILE = os.path.dirname(__file__ ) + '/Gemini/Gemini - 20180709-150502.jpg'
 print(LOCALFILE)
-BACKUPPATH = '/Master Scraper/Gemini ' +  str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg" # Keep the forward slash before destination filename
+BACKUPPATH = '/Master/Gemini ' +  str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg" # Keep the forward slash before destination filename
 
 #Create Directory Structure if doesn't exist in working Directory.
 dirpath = os.path.dirname(__file__ )+ "/Plates34_37"
@@ -104,7 +108,7 @@ if __name__ == '__main__':
             currentName1 = "Plates34_37/Plate34-37" + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg" #Generates file name
             urllib.request.urlretrieve("http://images.punatraffic.com/SnapShot/320x240/TL-11.jpg", currentName1) #gets the image and stores in approriate directory
             LOCALFILE = os.path.dirname(__file__) + '/' + currentName1 #stores file location and name 
-            BACKUPPATH = '/Master Scraper/Plates34_37/Plate34-37 ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg" #generates backup path for Dropbox upload
+            BACKUPPATH = '/Master/Plates34_37/Plate34-37 ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg" #generates backup path for Dropbox upload
             backup() 
             print('Backup Completed.')
 
@@ -112,7 +116,7 @@ if __name__ == '__main__':
             urllib.request.urlretrieve("http://images.punatraffic.com/SnapShot/320x240/TL-10.jpg", currentName2)
             print("Thermal: "+currentName1 + " - " + currentName2)
             LOCALFILE = os.path.dirname(__file__) + '/' + currentName2
-            BACKUPPATH = '/Master Scraper/Plates22_25/Plate22-25 ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
+            BACKUPPATH = '/Master/Plates22_25/Plate22-25 ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
             backup()
             print('Backup Completed.')
 
@@ -122,7 +126,7 @@ if __name__ == '__main__':
                 urllib.request.urlretrieve("https://volcanoes.usgs.gov/observatories/hvo/cams/KWcam/images/M.jpg", currentName)
                 print(currentName)
                 LOCALFILE = os.path.dirname(__file__) + '/' + currentName
-                BACKUPPATH = '/Master Scraper/KWcam/KWcam ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
+                BACKUPPATH = '/Master/KWcam/KWcam ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
                 backup()
                 print('Backup Completed.')
 
@@ -131,7 +135,7 @@ if __name__ == '__main__':
                 urllib.request.urlretrieve("https://volcanoes.usgs.gov/observatories/hvo/cams/KIcam/images/M.jpg", currentName)
                 print(currentName)
                 LOCALFILE = os.path.dirname(__file__) + '/' + currentName
-                BACKUPPATH = '/Master Scraper/KIcam/KIcam ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
+                BACKUPPATH = '/Master/KIcam/KIcam ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
                 backup()
                 print('Backup Completed.')
 
@@ -140,7 +144,7 @@ if __name__ == '__main__':
                 urllib.request.urlretrieve("https://volcanoes.usgs.gov/observatories/hvo/cams/PGcam/images/M.jpg", currentName)
                 print(currentName)
                 LOCALFILE = os.path.dirname(__file__) + '/' + currentName
-                BACKUPPATH = '/Master Scraper/PGCam/PGcam ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
+                BACKUPPATH = '/Master/PGCam/PGcam ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
                 backup()
                 print('Backup Completed.')
 
@@ -152,7 +156,7 @@ if __name__ == '__main__':
                 urllib.request.urlretrieve("http://images.punatraffic.com/SnapShot/320x240/TL-206.jpg", currentName)
                 print(currentName)
                 LOCALFILE = os.path.dirname(__file__) + '/' + currentName
-                BACKUPPATH = '/Master Scraper/Hwy130camSouth/Hwy130 South ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
+                BACKUPPATH = '/Master/Hwy130camSouth/Hwy130 South ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
                 backup()
                 print('Backup Completed.')
 
@@ -161,7 +165,7 @@ if __name__ == '__main__':
                 urllib.request.urlretrieve("http://images.punatraffic.com/SnapShot/320x240/TL-207.jpg", currentName)
                 print(currentName)
                 LOCALFILE = os.path.dirname(__file__) + '/' + currentName
-                BACKUPPATH = '/Master Scraper/Hwy130camNorth/Hwy130 North ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
+                BACKUPPATH = '/Master/Hwy130camNorth/Hwy130 North ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
                 backup()
                 print('Backup Completed.')
 
@@ -170,7 +174,7 @@ if __name__ == '__main__':
                 urllib.request.urlretrieve("https://volcanoes.usgs.gov/observatories/hvo/cams/F1cam/images/M.jpg", currentName)
                 print(currentName)
                 LOCALFILE = os.path.dirname(__file__) + '/' + currentName
-                BACKUPPATH = '/Master Scraper/F1cam/F1cam ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
+                BACKUPPATH = '/Master/F1cam/F1cam ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
                 backup()
                 print('Backup Completed.')
 
@@ -179,7 +183,7 @@ if __name__ == '__main__':
                 urllib.request.urlretrieve("https://volcanoes.usgs.gov/observatories/hvo/cams/KEcam/images/M.jpg", currentName)
                 print(currentName)
                 LOCALFILE = os.path.dirname(__file__) + '/' + currentName
-                BACKUPPATH = '/Master Scraper/KEcam/KEcam ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
+                BACKUPPATH = '/Master/KEcam/KEcam ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
                 backup()
                 print('Backup Completed.')
 
@@ -193,7 +197,7 @@ if __name__ == '__main__':
                 urllib.request.urlretrieve("http://www.cfht.hawaii.edu/en/gallery/cloudcams/cloudcam1/movies/Jul09-2018-CFHT-CC1-large.mp4.keyframe.jpg", currentName)
                 print(currentName)
                 LOCALFILE = os.path.dirname(__file__) + '/' + currentName
-                BACKUPPATH = '/Master Scraper/MaunaKea/Gemini ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
+                BACKUPPATH = '/Master/MaunaKea/Gemini ' + str(time.strftime("%Y%m%d-%H%M%S")) + ".jpg"
                 backup()
                 print('Backup Completed.')
 
